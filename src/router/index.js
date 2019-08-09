@@ -5,6 +5,7 @@ import Login from '@/views/Login';
 import Join from '@/views/Join';
 import Stock from '@/views/Stock';
 import Write from '@/views/Write';
+import MyPage from '@/views/MyPage';
 
 Vue.use(Router);
 
@@ -30,6 +31,10 @@ export default new Router({
       path: '/write',
       name: 'Write',
       component: Write
+    }, {
+      path: '/myPage',
+      name: 'MyPage',
+      component: MyPage
     }
   ]
 });

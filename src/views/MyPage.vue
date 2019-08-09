@@ -1,5 +1,5 @@
 <template>
-  <div class="stock">
+  <div class="my-page">
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
       <v-card class="mx-auto" max-width="1000">
         <v-layout fill-height column justify-center align-content-space-around class="pa-3">
@@ -11,16 +11,13 @@
                   <span>계약명</span>
                 </td>
                 <td>
-                  <span>발행 금액</span>
+                  <span>시작일</span>
                 </td>
                 <td>
-                  <span>연이율 / 만기일</span>
+                  <span>만기일</span>
                 </td>
                 <td>
-                  <span>참가자수</span>
-                </td>
-                <td>
-                  <span>남은 토큰 / 발행 토큰</span>
+                  <span>보유 토큰량 / 평가 금액</span>
                 </td>
                 <td>
                   <span>동작</span>
@@ -36,23 +33,19 @@
                   <span>{{ row.secName }}</span>
                 </td>
                 <td>
-                  <span>{{ row.issueAmount }}</span>
+                  <span>{{ row.startDate }}</span>
                 </td>
                 <td>
-                  <span>{{ row.duesPerYear }}</span>
                   <span>{{ row.expiryDate }}</span>
                 </td>
                 <td>
-                  <span>{{ row.participants }}</span>
-                </td>
-                <td>
-                  <span>{{ row.remainToken }}</span>
-                  <span>{{ row.issueToken }}</span>
+                  <span>{{ row.holdToken }}</span>
+                  <span>{{ row.valueAmount }}</span>
                 </td>
                 <td>
                   <v-layout column>
-                    <v-btn flat v-if="row.buttonJoin">
-                      <span>참가</span>
+                    <v-btn flat v-if="row.buttonTransfer">
+                      <span>송금</span>
                     </v-btn>
                     <v-btn flat v-if="row.buttonDetail">
                       <span>세부 설명</span>
@@ -70,7 +63,7 @@
 
 <script>
 export default {
-  name: 'Stock',
+  name: 'MyPage',
   components: {
   },
   data () {
@@ -79,24 +72,20 @@ export default {
         {
           flag: '사모',
           secName: '제 111회 한화',
-          issueAmount: 10000000000,
-          duesPerYear: 2.6,
+          startDate: 2,
           expiryDate: 2,
-          participants: 3,
-          remainToken: 99,
-          issueToken: 100,
-          buttonJoin: true,
+          holdToken: 99,
+          valueAmount: 100,
+          buttonTransfer: true,
           buttonDetail: true,
         }, {
           flag: '공모',
           secName: '제 2회 한화',
-          issueAmount: 1000000000000,
-          duesPerYear: 5,
+          startDate: 5,
           expiryDate: 5,
-          participants: 109,
           remainToken: 586,
-          issueToken: 1000,
-          buttonJoin: true,
+          valueAmount: 1000,
+          buttonTransfer: true,
           buttonDetail: true,
         }
       ]
