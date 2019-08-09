@@ -12,7 +12,7 @@
             <v-card class="card white-back pa-4">
               <v-layout row justify-center align-center>
                 <v-avatar color="#121836" class="mr-3">
-                  <span class="display-1 white--text">{{ $store.getters.account.identity }}</span>
+                  <span class="display-1 white--text">{{ $store.getters.account.identity.charAt(0) }}</span>
                 </v-avatar>
                 <div>
                   <p class="headline">{{ $store.getters.account.identity }}</p>
