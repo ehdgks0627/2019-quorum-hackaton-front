@@ -30,28 +30,31 @@
           <v-card class="card mx-auto my-5" max-width="800" elevation="24">
             <v-layout column>
               <h3 class="display-1 text-xs-center my-4">Quorum Equity Linked Securities Contract</h3>
-              <v-form>
+              <v-form ref="form" v-model="valid" lazy-validation>
                 <div>
-                  <v-text-field class="contract-input-field" v-model="secName" hint="증권 명칭" placeholder="증권 명칭" :rules="secNameRules" />
-                  <v-text-field class="contract-input-field" v-model="stockCode" hint="증권 코드" placeholder="증권 코드" :rules="stockCodeRules" />
+                  <v-select class="text-xs-right contract-input-field" :items="types" v-model="type"></v-select>
+                </div>
+                <div>
+                  <v-text-field class="contract-input-field" v-model="secName" hint="Stock Name" placeholder="Stock Name" :rules="secNameRules" />
+                  <v-text-field class="contract-input-field" v-model="stockCode" hint="Stock Code" placeholder="Stock Code" :rules="stockCodeRules" />
                   <br />
                   <span>연 이자율을 </span>
-                  <v-text-field class="contract-input-field" v-model="duesPerYear" hint="연 이자율" placeholder="연 이자율" :rules="duesPerYearRules" />
+                  <v-text-field class="contract-input-field" v-model="duesPerYear" hint="Dues Per Year" placeholder="Dues Per Year" :rules="duesPerYearRules" />
                   <span>% 로 책정한다.</span>
                   <br />
                   <span>액면 금액을 </span>
-                  <v-text-field class="contract-input-field" v-model="notionalAmount" hint="액면 금액" placeholder="액면 금액" :rules="notionalAmountRules" />
+                  <v-text-field class="contract-input-field" v-model="notionalAmount" hint="Notional Amount" placeholder="Notional Amount" :rules="notionalAmountRules" />
                   <span>원 으로 책정한다.</span>
                   <br />
                   <span>발행가액을 </span>
-                  <v-text-field class="contract-input-field" v-model="issueAmount" hint="발행가액" placeholder="발행가액" :rules="issueAmountRules" />
+                  <v-text-field class="contract-input-field" v-model="issueAmount" hint="Issue Amount" placeholder="Issue Amount" :rules="issueAmountRules" />
                   <span>원 으로 책정한다.</span>
                   <br />
                   <span>발행일은 </span>
-                  <v-text-field class="contract-input-field" v-model="issueDate" hint="발행일" placeholder="발행일" :rules="issueDateRules" />
+                  <v-text-field class="contract-input-field" v-model="issueDate" hint="Issue Date" placeholder="Issue Date" :rules="issueDateRules" />
                   <span>이며, </span>
                   <span>만기일은 </span>
-                  <v-text-field class="contract-input-field" v-model="expiryDate" hint="만기일" placeholder="만기일" :rules="expiryDateRules" />
+                  <v-text-field class="contract-input-field" v-model="expiryDate" hint="Expiry Date" placeholder="Expiry Date" :rules="expiryDateRules" />
                   <span>원 으로 정한다.</span>
                   <br />
                   <span>하한선 금액을 </span>
@@ -60,11 +63,11 @@
                 </div>
                 <v-layout row>
                   <v-spacer />
-                  <v-btn flat>
+                  <v-btn flat @click="reset">
                     <span>Reset</span>
                     <v-icon class="ml-2">settings_backup_restore</v-icon>
                   </v-btn>
-                  <v-btn color="primary">
+                  <v-btn color="primary" @click="submit">
                     <span>Submit</span>
                     <v-icon class="ml-2">send</v-icon>
                   </v-btn>
@@ -85,6 +88,7 @@ export default {
   },
   data () {
     return {
+      valid: true,
       secName: '',
       stockCode: '',
       duesPerYear: '',
@@ -94,31 +98,50 @@ export default {
       expiryDate: '',
       underPerPrice: '',
       years: '',
+      type: 'Private Equity Fund',
+      types: ['Private Equity Fund', 'Public Equity Fund'],
       secNameRules: [
-        v => !!v || '증권 명칭을 입력하세요.'
+        v => !!v || 'Please input Stock Name.'
       ],
       stockCodeRules: [
-        v => !!v || '증권 코드를 입력하세요.'
+        v => !!v || 'Please input Stock Code.'
       ],
       duesPerYearRules: [
-        v => !!v || '연 이자율을 입력하세요.'
+        v => !!v || 'Please input Dues Per Year.'
       ],
       notionalAmountRules: [
-        v => !!v || '액면 금액을 입력하세요.'
+        v => !!v || 'Please input Notional Amount.'
       ],
       issueAmountRules: [
-        v => !!v || '발행가액을 입력하세요.'
+        v => !!v || 'Please input Issue Amount.'
       ],
       issueDateRules: [
-        v => !!v || '발행일을 입력하세요.'
+        v => !!v || 'Please input Issue Date.'
       ],
       expiryDateRules: [
-        v => !!v || '만기일을 입력하세요.'
+        v => !!v || 'Please input Expiry Date.'
       ],
       underPerPriceRules: [
-        v => !!v || '하한선 금액을 입력하세요.'
+        v => !!v || 'Please input Under Per Price.'
       ]
     };
+  },
+  methods: {
+    reset () {
+      this.secName = '';
+      this.stockCode = '';
+      this.duesPerYear = '';
+      this.notionalAmount = '';
+      this.issueAmount = '';
+      this.issueDate = '';
+      this.expiryDate = '';
+      this.underPerPrice = '';
+      this.years = '';
+      this.type = 'Private Equity Fund';
+      this.valid = true;
+    },
+    submit () {
+    }
   },
   mounted () {
   }

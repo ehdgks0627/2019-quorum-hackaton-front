@@ -12,16 +12,16 @@
             <v-card class="card white-back pa-4">
               <v-layout row justify-center align-center>
                 <v-avatar color="#121836" class="mr-3">
-                  <span class="display-1 white--text">H</span>
+                  <span class="display-1 white--text">{{ $store.getters.account.identity }}</span>
                 </v-avatar>
                 <div>
-                  <p class="headline">Hangole</p>
-                  <p class="title">0x000000000000000000000000</p>
+                  <p class="headline">{{ $store.getters.account.identity }}</p>
+                  <p class="title">{{ $store.getters.account.address }}</p>
                 </div>
                 <v-spacer />
                 <div>
-                  <p class="title">10000000$</p>
-                  <p class="title">10000000$</p>
+                  <p class="title">{{ $store.getters.account.balance }}</p>
+                  <p class="title">{{ $store.getters.account.total }}</p>
                 </div>
               </v-layout>
             </v-card>

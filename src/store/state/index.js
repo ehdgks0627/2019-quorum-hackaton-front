@@ -8,7 +8,8 @@ export default {
       login: '/member/login',
       logout: '/member/logout',
       join: '/member/join',
-      account: '/member'
+      account: '/member',
+      list: '/contract'
     }
   },
   account: {

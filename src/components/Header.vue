@@ -38,7 +38,7 @@ export default {
           link: '/write'
         }
       ];
-      console.log(this.$store.getters.account.identity);
+
       if (this.$store.getters.account.identity) {
         result.push({
           title: 'My Page',
