@@ -74,8 +74,9 @@
                   </v-menu>
                   <!-- <v-text-field class="contract-input-field" v-model="issueDate" hint="Issue Date" placeholder="Issue Date" :rules="issueDateRules" /> -->
                   <span>and, </span>
-                  <span>the expiration date is </span>
-                  <v-menu
+                  <span>the expiration date is For </span>
+                  <v-text-field class="contract-input-field" v-model="expiryYears" hint="Expiry Years" placeholder="Expiry Years" :rules="expiryYearsRules" />
+                  <!-- <v-menu
                     v-model="expiryDateMenu"
                     :close-on-content-click="false"
                     :nudge-right="40"
@@ -87,16 +88,16 @@
                     <template v-slot:activator="{ on }">
                       <v-text-field
                         v-model="expiryDate"
-                        label="Issue Date"
+                        label="Expiry Date"
                         readonly
                         v-on="on"
                         class="contract-input-field"
                       ></v-text-field>
                     </template>
                     <v-date-picker light color="#242d55" v-model="expiryDate" @input="expiryDateMenu = false"></v-date-picker>
-                  </v-menu>
+                  </v-menu> -->
                   <!-- <v-text-field class="contract-input-field" v-model="expiryDate" hint="Expiry Date" placeholder="Expiry Date" :rules="expiryDateRules" /> -->
-                  <span>.</span>
+                  <span> years.</span>
                   <br />
                   <span>Set the Under Per Price to </span>
                   <v-text-field class="contract-input-field" v-model="underPerPrice" hint="Under Per Price" placeholder="Under Per Price" :rules="underPerPriceRules" />
@@ -136,13 +137,14 @@ export default {
       notionalAmount: '',
       issueAmount: '',
       issueDate: '',
-      expiryDate: '',
+      expiryYears: '',
+      // expiryDate: '',
       underPerPrice: '',
       years: '',
       type: 'private',
       types: ['private', 'public'],
       issueDateMenu: false,
-      expiryDateMenu: false,
+      // expiryDateMenu: false,
       secNameRules: [
         v => !!v || 'Please input Stock Name.'
       ],
@@ -161,8 +163,11 @@ export default {
       issueDateRules: [
         v => !!v || 'Please input Issue Date.'
       ],
+      // expiryDateRules: [
+      //   v => !!v || 'Please input Expiry Date.'
+      // ],
       expiryDateRules: [
-        v => !!v || 'Please input Expiry Date.'
+        v => !!v || 'Please input Expiry Years.'
       ],
       underPerPriceRules: [
         v => !!v || 'Please input Under Per Price.'
@@ -177,13 +182,25 @@ export default {
       this.notionalAmount = '';
       this.issueAmount = '';
       this.issueDate = '';
-      this.expiryDate = '';
+      this.expiryYears = '';
+      // this.expiryDate = '';
       this.underPerPrice = '';
       this.years = '';
       this.type = 'private';
       this.valid = true;
     },
     submit () {
+      var body = {
+        totalSupply: this.issueAmount,
+        secName: this.secName,
+        stockCode: this.stockCode,
+        duesPerYear: this.duesPerYear * 10,
+        fundingYears: this.expiryYears,
+        issueAmout: this.issueAmount,
+        issueDate: this.issueDate,
+        expiryDate: this.issueDate + (this.expiryYears * 3.154e+10),
+        underPerPrice: this.underPerPrice
+      }
     }
   },
   mounted () {
