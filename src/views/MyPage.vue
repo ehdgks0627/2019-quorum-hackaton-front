@@ -157,7 +157,7 @@ export default {
   },
   methods: {
     transfer () {
-      // 
+      // TODO
     }
   },
   mounted () {

@@ -149,13 +149,12 @@ export default {
           buttonDetail: true
         }, {
           fundingYears: 2,
-          name: "test contract",
-          type: "public",
-          // 
-          contractAddress: "0x1234",
-          erc20ContractAddress: "131414",
+          name: 'test contract',
+          type: 'public',
+          contractAddress: '0x1234',
+          erc20ContractAddress: '131414',
           owner: 1,
-          stockCode: "4422342",
+          stockCode: '4422342',
           uid: null,
           value: 1000
         }
