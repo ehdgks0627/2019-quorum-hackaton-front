@@ -2,7 +2,7 @@
   <div class="my-page">
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
       <v-layout column justify-center style="max-width: 1000px;margin: auto;">
-        <v-layout row>
+        <v-layout row class="white--text mb-5">
           <v-flex md6>
             <span>잔고: {{ balance }}</span>
           </v-flex>
@@ -13,7 +13,7 @@
             </v-layout>
           </v-flex>
         </v-layout>
-        <v-card class="mx-auto" max-width="1000">
+        <v-card max-width="1000">
           <v-layout fill-height column justify-center align-content-space-around class="pa-3">
             <table class="">
               <thead class="text-xs-center">
