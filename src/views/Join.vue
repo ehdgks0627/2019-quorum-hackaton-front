@@ -19,12 +19,12 @@
     </div>
 
     <v-container>
-      <v-layout align-center justify-center style="min-height: 500px;">
+      <v-layout align-center justify-center>
         <v-flex>
           <v-card class="card mx-auto pa-0 my-5" max-width="1000" elevation="24">
             <v-layout row>
-              <v-flex md6>
-                <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" aspect-ratio="1.7" height="100%"></v-img>
+              <v-flex md6 style="background-color: black;">
+                <v-img src="/static/main.jpg" aspect-ratio="1.7" height="100%" style="opacity: 0.3;"></v-img>
               </v-flex>
               <v-flex md6>
                 <v-form ref="form" v-model="valid" lazy-validation>
@@ -84,6 +84,9 @@ export default {
 
       this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.join, body).then((response) => {
         console.log('then', response);
+        if (response.data.ok) {
+          this.$router.push('/login');
+        }
       }).catch((error) => {
         console.log('error', error);
       }).finally(() => {

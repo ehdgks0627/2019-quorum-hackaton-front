@@ -127,6 +127,10 @@ a {
   text-decoration: none !important;
 }
 
+p {
+  margin: 0px;
+}
+
 .v-content {
   padding-top: 0px !important;
   background-color: rgb(25, 33, 73);
@@ -152,7 +156,7 @@ a {
 }
 
 .main.mini .container {
-  margin-bottom: -64px;
+  margin-bottom: -96px;
 }
 
 .main .circle {
@@ -212,6 +216,11 @@ a {
   border-radius: 24px !important;
   color: white !important;
   overflow: hidden;
+}
+
+.card.white-back {
+  background-color: white !important;
+  color: black !important;
 }
 
 table {

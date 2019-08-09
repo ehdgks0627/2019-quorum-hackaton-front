@@ -140,6 +140,20 @@ export default {
       ]
     };
   },
+  methods: {
+    loadData () {
+      this.$http.get(this.$store.getters.server.hostname + this.$store.getters.server.path.list).then((response) => {
+        console.log(response);
+        if (response.data.ok) {
+          this.data = response.data.d;
+        }
+      }).catch((error) => {
+        console.log('error', error);
+      }).finally(() => {
+        console.log('finally');
+      });
+    }
+  },
   mounted () {
   }
 };

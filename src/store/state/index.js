@@ -1,9 +1,9 @@
 
 export default {
   server: {
-    host: '52.79.251.29',
+    host: 'ec2-13-125-10-31.ap-northeast-2.compute.amazonaws.com',
     port: '3000',
-    hostname: 'http://52.79.251.29:3000',
+    hostname: 'http://ec2-13-125-10-31.ap-northeast-2.compute.amazonaws.com:3000',
     path: {
       login: '/member/login',
       logout: '/member/logout',
@@ -12,6 +12,8 @@ export default {
     }
   },
   account: {
-    identity: ''
+    identity: '',
+    balance: '',
+    total: ''
   }
 };

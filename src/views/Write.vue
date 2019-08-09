@@ -25,7 +25,7 @@
     </div>
 
     <v-container>
-      <v-layout align-center justify-center style="min-height: 500px;">
+      <v-layout align-center justify-center>
         <v-flex>
           <v-card class="card mx-auto my-5" max-width="800" elevation="24">
             <v-layout column>
