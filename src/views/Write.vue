@@ -9,7 +9,8 @@
       <v-container fill-height>
         <v-layout justify-center align-center>
           <v-flex>
-            <h3 class="display-3 mb-4 text-xs-center">계약서 작성</h3>
+            <h3 class="display-3 text-xs-center">CONTRACT WRITING</h3>
+            <h3 class="display-1 mb-4 text-xs-center red-text">Create and distribute an QELS Contract !</h3>
           </v-flex>
         </v-layout>
       </v-container>
@@ -28,7 +29,7 @@
         <v-flex>
           <v-card class="card mx-auto my-5" max-width="800" elevation="24">
             <v-layout column>
-              <h3 class="display-2 text-xs-center my-4">주가연계증권 계약서</h3>
+              <h3 class="display-1 text-xs-center my-4">Quorum Equity Linked Securities Contract</h3>
               <v-form>
                 <div>
                   <v-text-field class="contract-input-field" v-model="secName" hint="증권 명칭" placeholder="증권 명칭" :rules="secNameRules" />
@@ -59,6 +60,10 @@
                 </div>
                 <v-layout row>
                   <v-spacer />
+                  <v-btn flat>
+                    <span>Reset</span>
+                    <v-icon class="ml-2">settings_backup_restore</v-icon>
+                  </v-btn>
                   <v-btn color="primary">
                     <span>Submit</span>
                     <v-icon class="ml-2">send</v-icon>

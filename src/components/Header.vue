@@ -4,7 +4,7 @@
     <v-container class="header-container" fill-height fluid>
       <v-toolbar-title class="header-logo">
         <router-link class="header-logo" to="/">
-          <span>QELS</span>
+          <span class="headline">QELS</span>
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -67,7 +67,7 @@ export default {
 
 <style scoped>
 .header {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 .navigation {

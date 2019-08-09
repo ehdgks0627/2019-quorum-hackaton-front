@@ -209,7 +209,7 @@ a {
 .card {
   padding: 32px;
   background-color: rgb(36, 45, 85) !important;
-  border-radius: 24px;
+  border-radius: 24px !important;
   color: white !important;
   overflow: hidden;
 }
