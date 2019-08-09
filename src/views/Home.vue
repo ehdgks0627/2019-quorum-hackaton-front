@@ -6,7 +6,7 @@
           <v-layout justify-center align-center>
             <v-flex>
               <h3 class="display-3 mb-4">Welcome to QELS</h3>
-              <div>
+              <!-- <div>
                 <v-btn to="/write" color="primary" large>
                   <span>Write Contract</span>
                 </v-btn>
@@ -14,7 +14,7 @@
                 <v-btn to="/join" flat large>
                   <span>Go to Join</span>
                 </v-btn>
-              </div>
+              </div> -->
               <!-- <h3 class="display-3" v-text="$t('helloBifrost')"></h3>
               <div class="text-xs-center">
                 <v-btn to="/editor" class="mx-0" color="primary" large>
@@ -50,34 +50,6 @@
         </v-container>
       </v-responsive>
     </v-parallax>
-
-    <v-container>
-      <v-layout align-center justify-center style="min-height: 500px;">
-        <v-flex>
-          <!--  -->
-        </v-flex>
-      </v-layout>
-    </v-container>
-
-    <v-parallax class="main-parallax" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" height="700">
-      <v-responsive>
-        <v-container fill-height>
-          <v-layout align-center>
-            <v-flex>
-              <!--  -->
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-responsive>
-    </v-parallax>
-
-    <v-container>
-      <v-layout align-center justify-center style="min-height: 500px;">
-        <v-flex>
-          <!--  -->
-        </v-flex>
-      </v-layout>
-    </v-container>
   </div>
 </template>
 

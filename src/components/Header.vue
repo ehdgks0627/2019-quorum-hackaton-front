@@ -8,9 +8,12 @@
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-for="(element, index) in navigation" :key="index" :to="element.link" icon>
-        <v-icon>{{ element.icon }}</v-icon>
-      </v-btn>
+      <router-link v-for="(element, index) in navigation" :key="index" class="navigation" :to="element.link">
+        <v-layout row justify-center align-center>
+          <span>{{ element.title }}</span>
+          <v-icon small class="ml-1">{{ element.icon }}</v-icon>
+        </v-layout>
+      </router-link>
     </v-container>
   </v-toolbar>
 </template>
@@ -34,9 +37,9 @@ export default {
           icon: 'assignment',
           link: '/write'
         }, {
-          title: 'Login',
+          title: 'My Page',
           icon: 'account_circle',
-          link: '/login'
+          link: '/myPage'
         }
       ]
     };
@@ -46,7 +49,17 @@ export default {
 
 <style scoped>
 .header {
-  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+  margin: 0px 8px;
+  opacity: 0.5;
+}
+
+.navigation:hover,
+.navigation.router-link-active {
+  opacity: 1;
 }
 </style>
 

@@ -61,6 +61,7 @@ export default {
   vertical-align: middle;
   scroll-behavior: smooth;
   user-select: none;
+  transition: .3s cubic-bezier(.25,.8,.5,1);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -92,6 +93,6 @@ a {
 }
 
 .v-content {
-  /* padding-top: 0px !important; */
+  padding-top: 0px !important;
 }
 </style>
