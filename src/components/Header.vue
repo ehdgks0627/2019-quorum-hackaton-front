@@ -23,28 +23,24 @@ export default {
   name: 'Header',
   computed: {
     navigation () {
-      var result = [
-        {
-          title: 'List',
-          icon: 'list',
-          link: '/list'
-        // }, {
-        //   title: 'Stock',
-        //   icon: 'trending_up',
-        //   link: '/stock'
-        }, {
-          title: 'Contract',
-          icon: 'assignment',
-          link: '/write'
-        }
-      ];
+      var result = [];
       console.log(this.$store.getters.account.identity);
       if (this.$store.getters.account.identity) {
-        result.push({
-          title: 'My Page',
-          icon: 'account_circle',
-          link: '/myPage'
-        });
+        result.push(
+          {
+            title: 'List',
+            icon: 'list',
+            link: '/list'
+          }, {
+            title: 'Contract',
+            icon: 'assignment',
+            link: '/write'
+          }, {
+            title: 'My Page',
+            icon: 'account_circle',
+            link: '/myPage'
+          }
+        );
       } else {
         result.push({
           title: 'Login',

@@ -16,7 +16,9 @@ export default {
       logout: '/member/logout',
       join: '/member/join',
       account: '/member',
-      list: '/contract'
+      list: '/contract',
+      contract: '/contract/public',
+      buy: '/contract/buy'
     }
   },
   account: {

@@ -177,15 +177,17 @@ export default {
     },
     join (row) {
       var body = {
-        // 
+        name: row.name,
+        amount: row.inputValue
       };
-      this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.join).then((response) => {
+      this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.buy, body).then((response) => {
         console.log(response);
         if (response.data.ok) {
-          // this.data = response.data.d;
+          this.$store.dispatch('showSnackbar', {message: 'Successfully buy contract', color: 'success'});
         }
       }).catch((error) => {
         console.log('error', error);
+        this.$store.dispatch('showSnackbar', {message: 'Failed buy contract', color: 'error'});
       }).finally(() => {
         console.log('finally');
         row.joinDialog = false;

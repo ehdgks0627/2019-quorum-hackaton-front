@@ -141,7 +141,7 @@ export default {
       // expiryDate: '',
       underPerPrice: '',
       years: '',
-      type: 'private',
+      type: 'public',
       types: ['private', 'public'],
       issueDateMenu: false,
       // expiryDateMenu: false,
@@ -163,9 +163,9 @@ export default {
       issueDateRules: [
         v => !!v || 'Please input Issue Date.'
       ],
-      // expiryDateRules: [
-      //   v => !!v || 'Please input Expiry Date.'
-      // ],
+      expiryYearsRules: [
+        v => !!v || 'Please input Expiry Date.'
+      ],
       expiryDateRules: [
         v => !!v || 'Please input Expiry Years.'
       ],
@@ -190,17 +190,35 @@ export default {
       this.valid = true;
     },
     submit () {
+      if (!this.$refs.form.validate()) {
+        return;
+      }
+
       var body = {
         totalSupply: this.issueAmount,
         secName: this.secName,
         stockCode: this.stockCode,
+        startPrice: 20000,
         duesPerYear: this.duesPerYear * 10,
         fundingYears: this.expiryYears,
         issueAmout: this.issueAmount,
-        issueDate: this.issueDate,
-        expiryDate: this.issueDate + (this.expiryYears * 3.154e+10),
+        issueDate: new Date(this.issueDate).getTime(),
+        expiryDate: new Date(this.issueDate).getTime() + (this.expiryYears * 3.154e+10),
         underPerPrice: this.underPerPrice
-      }
+      };
+
+      this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.contract, body).then((response) => {
+        console.log('then', response);
+        if (response.data.ok) {
+          this.$store.dispatch('showSnackbar', {message: 'Successfully write contract', color: 'success'});
+          this.reset();
+        }
+      }).catch((error) => {
+        console.log('error', error);
+        this.$store.dispatch('showSnackbar', {message: 'Failed write contract', color: 'error'});
+      }).finally(() => {
+        console.log('finally');
+      });
     }
   },
   mounted () {
