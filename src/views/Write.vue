@@ -1,28 +1,27 @@
 <template>
   <div class="write">
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
-      <v-card class="mx-auto" max-width="800">
-        <v-layout row>
-          <v-flex md6>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
-          </v-flex>
-          <v-flex md6>
-            <v-layout fill-height column justify-center align-content-space-around class="pa-4">
-              <!-- <span class="title text-xs-center mb-4">Welcome to QELS</span>
-              <v-text-field hide-details v-model="identity" label="Identity"></v-text-field>
-              <v-text-field hide-details v-model="password" label="Password"></v-text-field>
+      <v-card class="mx-auto pa-4" max-width="1000">
+        <v-layout column>
+          <h3 class="display-2 text-xs-center my-4">Contract</h3>
+          <v-form>
+            <v-text-field v-model="secName" label="secName" :rules="secNameRules" />
+            <v-text-field v-model="stockCode" label="stockCode" :rules="stockCodeRules" />
+            <v-text-field v-model="duesPerYear" label="duesPerYear" :rules="duesPerYearRules" />
+            <v-text-field v-model="notionalAmount" label="notionalAmount" :rules="notionalAmountRules" />
+            <v-text-field v-model="issueAmount" label="issueAmount" :rules="issueAmountRules" />
+            <v-text-field v-model="issueDate" label="issueDate" :rules="issueDateRules" />
+            <v-text-field v-model="expiryDate" label="expiryDate" :rules="expiryDateRules" />
+            <v-text-field v-model="underPerPrice" label="underPerPrice" :rules="underPerPriceRules" />
+            <v-text-field v-model="underPerPrice" label="years" :rules="yearsRules" />
+            <v-layout row>
               <v-spacer />
-              <v-layout row justify-space-between align-center>
-                <v-spacer />
-                <router-link to="/join">
-                  <span>Join</span>
-                </router-link>
-              </v-layout>
-              <v-btn block large class="pa-2" color="primary">
-                <span>Login</span>
-              </v-btn> -->
+              <v-btn color="primary">
+                <span>Submit</span>
+                <v-icon class="ml-2">send</v-icon>
+              </v-btn>
             </v-layout>
-          </v-flex>
+          </v-form>
         </v-layout>
       </v-card>
     </v-img>
@@ -36,6 +35,42 @@ export default {
   },
   data () {
     return {
+      secName: '',
+      stockCode: '',
+      duesPerYear: '',
+      notionalAmount: '',
+      issueAmount: '',
+      issueDate: '',
+      expiryDate: '',
+      underPerPrice: '',
+      years: '',
+      secNameRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      stockCodeRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      duesPerYearRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      notionalAmountRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      issueAmountRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      issueDateRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      expiryDateRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      underPerPriceRules: [
+        v => !!v || '를 입력하세요.'
+      ],
+      yearsRules: [
+        v => !!v || '를 입력하세요.'
+      ]
     };
   },
   mounted () {

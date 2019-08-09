@@ -1,7 +1,7 @@
 <template>
   <div class="stock">
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
-      <v-card class="mx-auto" max-width="800">
+      <v-card class="mx-auto" max-width="1000">
         <v-layout row>
           <v-flex md6>
             <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
