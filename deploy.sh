@@ -3,5 +3,5 @@
 git pull origin master
 npm install
 npm run build
-# rm -rf /var/www/bifrost-builder/*
-# cp -r dist/* /var/www/bifrost-builder
+rm -rf /var/www/qels-front/*
+cp -r dist/* /var/www/qels-front
