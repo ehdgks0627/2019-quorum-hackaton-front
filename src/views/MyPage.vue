@@ -77,7 +77,7 @@ export default {
           holdToken: 99,
           valueAmount: 100,
           buttonTransfer: true,
-          buttonDetail: true,
+          buttonDetail: true
         }, {
           flag: '공모',
           secName: '제 2회 한화',
@@ -86,7 +86,7 @@ export default {
           remainToken: 586,
           valueAmount: 1000,
           buttonTransfer: true,
-          buttonDetail: true,
+          buttonDetail: true
         }
       ]
     };

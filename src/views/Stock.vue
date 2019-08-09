@@ -86,7 +86,7 @@ export default {
           remainToken: 99,
           issueToken: 100,
           buttonJoin: true,
-          buttonDetail: true,
+          buttonDetail: true
         }, {
           flag: '공모',
           secName: '제 2회 한화',
@@ -97,7 +97,7 @@ export default {
           remainToken: 586,
           issueToken: 1000,
           buttonJoin: true,
-          buttonDetail: true,
+          buttonDetail: true
         }
       ]
     };
