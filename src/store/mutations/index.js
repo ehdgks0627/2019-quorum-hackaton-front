@@ -1,5 +1,15 @@
 
 export default {
+  showSnackbar (state, {message, timeout, color, then}) {
+    state.snackbar.show = true;
+    state.snackbar.color = color || 'info';
+    state.snackbar.timeout = timeout || 10000;
+    state.snackbar.message = message;
+
+    if (typeof then === 'function') {
+      then();
+    }
+  },
   setAccount (state, {account, then}) {
     state.account.identity = account.username || account.identity;
     state.account.balance = account.money;

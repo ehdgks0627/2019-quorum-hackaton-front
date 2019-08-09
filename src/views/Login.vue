@@ -39,7 +39,7 @@
                         <span class="subtitle-1">Join</span>
                       </router-link>
                     </v-layout>
-                    <v-btn block large class="pa-2" color="primary" @click="login">
+                    <v-btn block large class="pa-2 mt-3" color="primary" @click="login">
                       <span>Login</span>
                     </v-btn>
                   </v-layout>
@@ -88,12 +88,17 @@ export default {
           this.$store.dispatch('getAccount', {
             identity: this.identity,
             then: () => {
+              this.$store.dispatch('showSnackbar', {message: 'Successfully Login', color: 'success'});
               this.$router.push('/');
+            },
+            error: (error_) => {
+              this.$store.dispatch('showSnackbar', {message: 'Failed Login', color: 'error'});
             }
           });
         }
       }).catch((error) => {
         console.log('error', error);
+        this.$store.dispatch('showSnackbar', {message: 'Failed Login', color: 'error'});
       }).finally(() => {
         console.log('finally');
       });

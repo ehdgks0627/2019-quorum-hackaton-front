@@ -20,8 +20,8 @@
                 </div>
                 <v-spacer />
                 <div>
-                  <p class="title">{{ $numberWithCommas($store.getters.account.balance) }} ￦</p>
-                  <p class="title">{{ $numberWithCommas($store.getters.account.total) }} ￦</p>
+                  <p class="title">Balance: {{ $numberWithCommas($store.getters.account.balance) }} ￦</p>
+                  <p class="title">Total: {{ $numberWithCommas($store.getters.account.total) }} ￦</p>
                 </div>
               </v-layout>
             </v-card>
@@ -89,12 +89,26 @@
                     </td>
                     <td>
                       <v-layout column>
-                        <v-btn class="my-3" v-if="row.buttonTransfer">
+                        <v-dialog v-model="row.transferDialog" persistent max-width="400">
+                          <template v-slot:activator="{ on }">
+                            <v-btn class="my-3" v-on="on">
+                              <span>Transfer</span>
+                            </v-btn>
+                          </template>
+                          <v-card class="card white-back">
+                            <v-card-title class="headline">How much join ?</v-card-title>
+                            <v-card-text>Value {{ row.value }} * {{ row.inputValue }} = {{ isNaN(row.value * row.inputValue) ? 0 : (row.value * row.inputValue) }}</v-card-text>
+                            <v-text-field light box v-model="row.inputValue" label="Input Value"></v-text-field>
+                            <v-card-actions>
+                              <v-spacer></v-spacer>
+                              <v-btn color="green darken-1" text @click="row.transferDialog = false">Close</v-btn>
+                              <v-btn color="green darken-1" text @click="transfer(row)">Join</v-btn>
+                            </v-card-actions>
+                          </v-card>
+                        </v-dialog>
+                        <!-- <v-btn class="my-3" v-if="row.buttonTransfer">
                           <span>Transfer</span>
-                        </v-btn>
-                        <v-btn class="my-3" v-if="row.buttonDetail">
-                          <span>Description</span>
-                        </v-btn>
+                        </v-btn> -->
                       </v-layout>
                     </td>
                   </tr>
@@ -140,6 +154,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    transfer () {
+      // 
+    }
   },
   mounted () {
   }

@@ -39,7 +39,7 @@
                         <span class="subtitle-1">Login</span>
                       </router-link>
                     </v-layout>
-                    <v-btn block large class="pa-2" color="primary" @click="join">
+                    <v-btn block large class="pa-2 mt-3" color="primary" @click="join">
                       <span>Join</span>
                     </v-btn>
                   </v-layout>
@@ -85,10 +85,12 @@ export default {
       this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.join, body).then((response) => {
         console.log('then', response);
         if (response.data.ok) {
+          this.$store.dispatch('showSnackbar', {message: 'Successfully Join', color: 'success'});
           this.$router.push('/login');
         }
       }).catch((error) => {
         console.log('error', error);
+        this.$store.dispatch('showSnackbar', {message: 'Failed Join', color: 'error'});
       }).finally(() => {
         console.log('finally');
       });

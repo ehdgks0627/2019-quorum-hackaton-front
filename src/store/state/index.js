@@ -1,5 +1,12 @@
 
 export default {
+  snackbar: {
+    show: false,
+    color: 'info',
+    mode: '',
+    timeout: 10000,
+    message: ''
+  },
   server: {
     host: 'ec2-13-125-10-31.ap-northeast-2.compute.amazonaws.com',
     port: '3000',
