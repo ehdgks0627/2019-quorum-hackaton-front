@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="pa-3">
+  <v-footer class="pa-3" dark>
     <v-container class="header-container" py-0 fill-height>
       <v-spacer></v-spacer>
       <div v-html="'Copyright&copy; ' + new Date().getFullYear() + '. Hangole. All rights reserved.'"></div>
