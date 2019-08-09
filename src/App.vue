@@ -95,6 +95,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* *:not(i) {
+  font-family: 'DarkerGrotesque Bold', sans-serif !important;
+  font-weight: 900;
+} */
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -113,8 +118,8 @@ html, body {
   margin: 0px;
   background: black;
   color: white;
-  font-family: 'DarkerGrotesque', sans-serif;
-  font-weight: 500;
+  /* font-family: 'DarkerGrotesque', sans-serif; */
+  /* font-weight: 500; */
 }
 
 a {
@@ -163,15 +168,15 @@ a {
 
 .main .circle.c1 {
   top: 130px;
-  left: 87px;
+  right: 87px;
   width: 200px;
   height: 200px;
   animation-duration: 20s;
 }
 
 .main .circle.c2 {
-  bottom: 10px;
-  left: 10px;
+  bottom: 32px;
+  left: 67px;
   width: 200px;
   height: 200px;
   animation-duration: 140s;

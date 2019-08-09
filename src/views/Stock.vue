@@ -9,7 +9,7 @@
       <v-container fill-height>
         <v-layout justify-center align-center>
           <v-flex>
-            <h3 class="display-3 mb-4 text-xs-center">사모 / 공모 리스트</h3>
+            <h3 class="display-3 mb-4 text-xs-center">ELS List</h3>
           </v-flex>
         </v-layout>
       </v-container>
