@@ -87,7 +87,7 @@ export default {
         if (response.data.ok) {
           this.$store.dispatch('getAccount', {
             then: () => {
-              this.$router.push('/login');
+              this.$router.push('/');
             }
           });
         }

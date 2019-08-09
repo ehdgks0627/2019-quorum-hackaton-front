@@ -34,28 +34,28 @@
                   <tr>
                     <td></td>
                     <td>
-                      <span>계약명</span>
+                      <span>Contract Name</span>
                     </td>
                     <td>
-                      <span>발행 금액</span>
+                      <span>Issue Amount</span>
                     </td>
                     <td>
-                      <span>연이율</span>
+                      <span>Dues Per Year</span>
                     </td>
                     <td>
-                      <span>만기일</span>
+                      <span>Expiry Date</span>
                     </td>
                     <td>
-                      <span>참가자수</span>
+                      <span>Participants</span>
                     </td>
                     <td>
-                      <span>남은 토큰</span>
+                      <span>Remaining Token</span>
                     </td>
                     <td>
-                      <span>발행 토큰</span>
+                      <span>Issue Token</span>
                     </td>
                     <td>
-                      <span>동작</span>
+                      <span>Function</span>
                     </td>
                   </tr>
                 </thead>
@@ -87,11 +87,11 @@
                     </td>
                     <td>
                       <v-layout column>
-                        <v-btn flat v-if="row.buttonJoin">
-                          <span>참가</span>
+                        <v-btn class="my-3" v-if="row.buttonJoin">
+                          <span>Join</span>
                         </v-btn>
-                        <v-btn flat v-if="row.buttonDetail">
-                          <span>세부 설명</span>
+                        <v-btn class="my-3" v-if="row.buttonDetail">
+                          <span>Description</span>
                         </v-btn>
                       </v-layout>
                     </td>
@@ -115,7 +115,7 @@ export default {
     return {
       data: [
         {
-          flag: '사모',
+          flag: 'Private',
           secName: '제 111회 한화',
           issueAmount: 10000000000,
           duesPerYear: 2.6,
@@ -126,7 +126,7 @@ export default {
           buttonJoin: true,
           buttonDetail: true
         }, {
-          flag: '공모',
+          flag: 'Public',
           secName: '제 2회 한화',
           issueAmount: 1000000000000,
           duesPerYear: 5,

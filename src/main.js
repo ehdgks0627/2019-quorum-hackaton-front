@@ -8,8 +8,9 @@ import store from './store';
 import router from './router';
 import './plugins/axios';
 import './plugins/vuetify';
-import './plugins/vueSocketIO';
-import './plugins/vueClipboard';
+// import './plugins/vueSocketIO';
+// import './plugins/vueClipboard';
+import './plugins/vueSession';
 import './plugins/function';
 
 Vue.config.productionTip = false;
