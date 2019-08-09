@@ -90,4 +90,8 @@ a {
   color: inherit !important;
   text-decoration: none !important;
 }
+
+.v-content {
+  /* padding-top: 0px !important; */
+}
 </style>

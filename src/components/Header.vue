@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  /* background-color: rgba(0, 0, 0, 0.3); */
+}
 </style>
 
 <style>

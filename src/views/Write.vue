@@ -1,19 +1,37 @@
 <template>
   <div class="write">
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
-      <v-card class="mx-auto pa-4" max-width="1000">
+      <v-card class="mx-auto pa-4" max-width="800">
         <v-layout column>
-          <h3 class="display-2 text-xs-center my-4">Contract</h3>
+          <h3 class="display-2 text-xs-center my-4">주가연계증권 계약서</h3>
           <v-form>
-            <v-text-field v-model="secName" label="secName" :rules="secNameRules" />
-            <v-text-field v-model="stockCode" label="stockCode" :rules="stockCodeRules" />
-            <v-text-field v-model="duesPerYear" label="duesPerYear" :rules="duesPerYearRules" />
-            <v-text-field v-model="notionalAmount" label="notionalAmount" :rules="notionalAmountRules" />
-            <v-text-field v-model="issueAmount" label="issueAmount" :rules="issueAmountRules" />
-            <v-text-field v-model="issueDate" label="issueDate" :rules="issueDateRules" />
-            <v-text-field v-model="expiryDate" label="expiryDate" :rules="expiryDateRules" />
-            <v-text-field v-model="underPerPrice" label="underPerPrice" :rules="underPerPriceRules" />
-            <v-text-field v-model="underPerPrice" label="years" :rules="yearsRules" />
+            <div>
+              <v-text-field class="contract-input-field" v-model="secName" hint="증권 명칭" :rules="secNameRules" />
+              <v-text-field class="contract-input-field" v-model="stockCode" hint="증권 코드" :rules="stockCodeRules" />
+              <br />
+              <span>연 이자율을 </span>
+              <v-text-field class="contract-input-field" v-model="duesPerYear" hint="연 이자율" :rules="duesPerYearRules" />
+              <span>% 로 책정한다.</span>
+              <br />
+              <span>액면 금액을 </span>
+              <v-text-field class="contract-input-field" v-model="notionalAmount" hint="액면 금액" :rules="notionalAmountRules" />
+              <span>원 으로 책정한다.</span>
+              <br />
+              <span>발행가액을 </span>
+              <v-text-field class="contract-input-field" v-model="issueAmount" hint="발행가액" :rules="issueAmountRules" />
+              <span>원 으로 책정한다.</span>
+              <br />
+              <span>발행일은 </span>
+              <v-text-field class="contract-input-field" v-model="issueDate" hint="발행일" :rules="issueDateRules" />
+              <span>이며, </span>
+              <span>만기일은 </span>
+              <v-text-field class="contract-input-field" v-model="expiryDate" hint="만기일" :rules="expiryDateRules" />
+              <span>원 으로 정한다.</span>
+              <br />
+              <span>하한선 금액을 </span>
+              <v-text-field class="contract-input-field" v-model="underPerPrice" hint="하한선 금액" :rules="underPerPriceRules" />
+              <span>원 으로 책정한다.</span>
+            </div>
             <v-layout row>
               <v-spacer />
               <v-btn color="primary">
@@ -78,5 +96,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.contract-input-field {
+  display: inline-block;
+  margin: 0px 8px;
+}
 </style>
