@@ -26,9 +26,13 @@ export default {
     return {
       navigation: [
         {
-          title: 'Home',
-          icon: 'home',
-          link: '/'
+          title: 'Stock',
+          icon: 'trending_up',
+          link: '/stock'
+        }, {
+          title: 'Write',
+          icon: 'assignment',
+          link: '/write'
         }, {
           title: 'Login',
           icon: 'account_circle',

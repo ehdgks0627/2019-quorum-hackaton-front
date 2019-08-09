@@ -1,6 +1,5 @@
 <template>
   <div class="join">
-    <!-- <v-img class="justify-center align-center"> -->
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
       <v-card class="mx-auto" max-width="800">
         <v-layout row>

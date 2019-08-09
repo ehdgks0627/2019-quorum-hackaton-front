@@ -60,6 +60,7 @@ export default {
   outline: none;
   vertical-align: middle;
   scroll-behavior: smooth;
+  user-select: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
