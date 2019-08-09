@@ -61,7 +61,10 @@ export default {
       };
 
       this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.login, body).then((response) => {
-        console.log('then', response);
+        console.log('then', response, response.data.ok);
+        if (response.data.ok) {
+          this.$store.dispatch('getAccount', {});
+        }
       }).catch((error) => {
         console.log('error', error);
       }).finally(() => {

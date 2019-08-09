@@ -19,7 +19,7 @@
                     <span>Login</span>
                   </router-link>
                 </v-layout>
-                <v-btn block large class="pa-2" color="primary">
+                <v-btn block large class="pa-2" color="primary" @click="join">
                   <span>Join</span>
                 </v-btn>
               </v-layout>
@@ -48,6 +48,26 @@ export default {
         v => !!v || '를 입력하세요.'
       ]
     };
+  },
+  methods: {
+    join () {
+      if (!this.$refs.form.validate()) {
+        return;
+      }
+
+      var body = {
+        user: this.identity,
+        password: this.password
+      };
+
+      this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.join, body).then((response) => {
+        console.log('then', response);
+      }).catch((error) => {
+        console.log('error', error);
+      }).finally(() => {
+        console.log('finally');
+      });
+    }
   },
   mounted () {
   }

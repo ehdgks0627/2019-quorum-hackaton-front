@@ -6,7 +6,12 @@ export default {
     hostname: 'http://52.79.251.29:3000',
     path: {
       login: '/member/login',
-      join: '/member/join'
+      logout: '/member/logout',
+      join: '/member/join',
+      account: '/member'
     }
+  },
+  account: {
+    identity: ''
   }
 };

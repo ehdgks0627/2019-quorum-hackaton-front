@@ -22,12 +22,8 @@
 export default {
   name: 'Header',
   computed: {
-  },
-  watch: {
-  },
-  data () {
-    return {
-      navigation: [
+    navigation () {
+      var result = [
         {
           title: 'Stock',
           icon: 'trending_up',
@@ -36,12 +32,30 @@ export default {
           title: 'Write',
           icon: 'assignment',
           link: '/write'
-        }, {
+        }
+      ];
+
+      if (this.$store.getters.account.identity) {
+        result.push({
           title: 'My Page',
           icon: 'account_circle',
           link: '/myPage'
-        }
-      ]
+        });
+      } else {
+        result.push({
+          title: 'Login',
+          icon: 'people',
+          link: '/login'
+        });
+      }
+
+      return result;
+    }
+  },
+  watch: {
+  },
+  data () {
+    return {
     };
   }
 };
