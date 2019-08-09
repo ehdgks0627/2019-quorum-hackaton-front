@@ -6,11 +6,12 @@
       <v-btn dark flat @click="$store.getters.snackbar.show = false">Close</v-btn>
     </v-snackbar>
     <v-expand-transition>
-      <Header v-show="$store.getters.screen.header" />
     </v-expand-transition> -->
+    <Header />
     <v-content>
       <router-view />
     </v-content>
+    <Footer />
     <!-- <v-speed-dial v-model="fab" fixed bottom right direction="left" transition="scale-transition">
       <template v-slot:activator>
         <v-btn v-model="fab" color="secondary" dark fab>
