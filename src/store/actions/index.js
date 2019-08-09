@@ -17,12 +17,12 @@ export default {
       final();
     }
   },
-  async getAccount ({commit}, {then, error, final}) {
+  async getAccount ({commit}, {identity, then, error, final}) {
     console.log('getAccount');
     try {
       var response = await axios.get(state.server.hostname + state.server.path.account);
       if (response.data.ok) {
-        commit('setAccount', {account: response.data.d, then});
+        commit('setAccount', {account: Object.assign(response.data.d, {identity: identity}), then});
       }
     } catch (error_) {
       if (typeof error === 'function') {

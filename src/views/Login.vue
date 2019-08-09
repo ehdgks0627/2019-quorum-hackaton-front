@@ -86,6 +86,7 @@ export default {
         console.log('then', response, response.data.ok);
         if (response.data.ok) {
           this.$store.dispatch('getAccount', {
+            identity: this.identity,
             then: () => {
               this.$router.push('/');
             }
