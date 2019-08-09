@@ -31,35 +31,76 @@
             <v-layout column>
               <h3 class="display-1 text-xs-center my-4">Quorum Equity Linked Securities Contract</h3>
               <v-form ref="form" v-model="valid" lazy-validation>
-                <div>
-                  <v-select class="text-xs-right contract-input-field" :items="types" v-model="type"></v-select>
+                <div class="text-xs-right">
+                  <v-select class="contract-input-field" :items="types" v-model="type"></v-select>
+                  <span> Equity Fund</span>
                 </div>
                 <div>
                   <v-text-field class="contract-input-field" v-model="secName" hint="Stock Name" placeholder="Stock Name" :rules="secNameRules" />
                   <v-text-field class="contract-input-field" v-model="stockCode" hint="Stock Code" placeholder="Stock Code" :rules="stockCodeRules" />
                   <br />
-                  <span>연 이자율을 </span>
+                  <span>Set an Dues Per Year of </span>
                   <v-text-field class="contract-input-field" v-model="duesPerYear" hint="Dues Per Year" placeholder="Dues Per Year" :rules="duesPerYearRules" />
-                  <span>% 로 책정한다.</span>
+                  <span>%.</span>
                   <br />
-                  <span>액면 금액을 </span>
+                  <span>Set the Notional Amount to </span>
                   <v-text-field class="contract-input-field" v-model="notionalAmount" hint="Notional Amount" placeholder="Notional Amount" :rules="notionalAmountRules" />
-                  <span>원 으로 책정한다.</span>
+                  <span>￦.</span>
                   <br />
-                  <span>발행가액을 </span>
+                  <span>Set the Issue Amount to </span>
                   <v-text-field class="contract-input-field" v-model="issueAmount" hint="Issue Amount" placeholder="Issue Amount" :rules="issueAmountRules" />
-                  <span>원 으로 책정한다.</span>
+                  <span>￦.</span>
                   <br />
-                  <span>발행일은 </span>
-                  <v-text-field class="contract-input-field" v-model="issueDate" hint="Issue Date" placeholder="Issue Date" :rules="issueDateRules" />
-                  <span>이며, </span>
-                  <span>만기일은 </span>
-                  <v-text-field class="contract-input-field" v-model="expiryDate" hint="Expiry Date" placeholder="Expiry Date" :rules="expiryDateRules" />
-                  <span>원 으로 정한다.</span>
+                  <span>Then issue date is </span>
+                  <v-menu
+                    v-model="issueDateMenu"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                    full-width
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-text-field
+                        v-model="issueDate"
+                        label="Issue Date"
+                        readonly
+                        v-on="on"
+                        class="contract-input-field"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker light color="#242d55" v-model="issueDate" @input="issueDateMenu = false"></v-date-picker>
+                  </v-menu>
+                  <!-- <v-text-field class="contract-input-field" v-model="issueDate" hint="Issue Date" placeholder="Issue Date" :rules="issueDateRules" /> -->
+                  <span>and, </span>
+                  <span>the expiration date is </span>
+                  <v-menu
+                    v-model="expiryDateMenu"
+                    :close-on-content-click="false"
+                    :nudge-right="40"
+                    transition="scale-transition"
+                    offset-y
+                    full-width
+                    min-width="290px"
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-text-field
+                        v-model="expiryDate"
+                        label="Issue Date"
+                        readonly
+                        v-on="on"
+                        class="contract-input-field"
+                      ></v-text-field>
+                    </template>
+                    <v-date-picker light color="#242d55" v-model="expiryDate" @input="expiryDateMenu = false"></v-date-picker>
+                  </v-menu>
+                  <!-- <v-text-field class="contract-input-field" v-model="expiryDate" hint="Expiry Date" placeholder="Expiry Date" :rules="expiryDateRules" /> -->
+                  <span>.</span>
                   <br />
-                  <span>하한선 금액을 </span>
-                  <v-text-field class="contract-input-field" v-model="underPerPrice" hint="하한선 금액" placeholder="하한선 금액" :rules="underPerPriceRules" />
-                  <span>원 으로 책정한다.</span>
+                  <span>Set the Under Per Price to </span>
+                  <v-text-field class="contract-input-field" v-model="underPerPrice" hint="Under Per Price" placeholder="Under Per Price" :rules="underPerPriceRules" />
+                  <span>￦.</span>
                 </div>
                 <v-layout row>
                   <v-spacer />
@@ -98,8 +139,10 @@ export default {
       expiryDate: '',
       underPerPrice: '',
       years: '',
-      type: 'Private Equity Fund',
-      types: ['Private Equity Fund', 'Public Equity Fund'],
+      type: 'private',
+      types: ['private', 'public'],
+      issueDateMenu: false,
+      expiryDateMenu: false,
       secNameRules: [
         v => !!v || 'Please input Stock Name.'
       ],
@@ -137,7 +180,7 @@ export default {
       this.expiryDate = '';
       this.underPerPrice = '';
       this.years = '';
-      this.type = 'Private Equity Fund';
+      this.type = 'private';
       this.valid = true;
     },
     submit () {

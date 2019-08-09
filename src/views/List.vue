@@ -62,19 +62,19 @@
                 <tbody>
                   <tr class="data-row" v-for="(row, rowIndex) in data" :key="rowIndex">
                     <td>
-                      <span>{{ row.flag }}</span>
+                      <span>{{ row.type }}</span>
                     </td>
                     <td>
-                      <span>{{ row.secName }}</span>
+                      <span>{{ row.name }}</span>
                     </td>
                     <td>
-                      <span>{{ row.issueAmount }}</span>
+                      <span>{{ $numberWithCommas(row.issueAmount) }} ￦</span>
                     </td>
                     <td>
-                      <span>{{ row.duesPerYear }}</span>
+                      <span>{{ row.duesPerYear }} %</span>
                     </td>
                     <td>
-                      <span>{{ row.expiryDate }}</span>
+                      <span>{{ row.fundingYears }} years</span>
                     </td>
                     <td>
                       <span>{{ row.participants }}</span>
@@ -87,12 +87,23 @@
                     </td>
                     <td>
                       <v-layout column>
-                        <v-btn class="my-3" v-if="row.buttonJoin">
-                          <span>Join</span>
-                        </v-btn>
-                        <v-btn class="my-3" v-if="row.buttonDetail">
-                          <span>Description</span>
-                        </v-btn>
+                        <v-dialog v-model="row.joinDialog" persistent max-width="400">
+                          <template v-slot:activator="{ on }">
+                            <v-btn class="my-3" v-on="on">
+                              <span>Join</span>
+                            </v-btn>
+                          </template>
+                          <v-card class="card white-back">
+                            <v-card-title class="headline">How much join ?</v-card-title>
+                            <v-card-text>Value {{ row.value }} * {{ row.inputValue }} = {{ isNaN(row.value * row.inputValue) ? 0 : (row.value * row.inputValue) }}</v-card-text>
+                            <v-text-field light box v-model="row.inputValue" label="Input Value"></v-text-field>
+                            <v-card-actions>
+                              <v-spacer></v-spacer>
+                              <v-btn color="green darken-1" text @click="row.joinDialog = false">Close</v-btn>
+                              <v-btn color="green darken-1" text @click="join(row)">Join</v-btn>
+                            </v-card-actions>
+                          </v-card>
+                        </v-dialog>
                       </v-layout>
                     </td>
                   </tr>
@@ -115,10 +126,10 @@ export default {
     return {
       data: [
         {
-          flag: 'Private',
-          secName: '제 111회 한화',
+          type: 'Private',
+          name: '제 111회 한화',
           issueAmount: 10000000000,
-          duesPerYear: 2.6,
+          fundingYears: 2.6,
           expiryDate: 2,
           participants: 3,
           remainToken: 99,
@@ -126,16 +137,27 @@ export default {
           buttonJoin: true,
           buttonDetail: true
         }, {
-          flag: 'Public',
-          secName: '제 2회 한화',
+          type: 'Public',
+          name: '제 2회 한화',
           issueAmount: 1000000000000,
-          duesPerYear: 5,
+          fundingYears: 5,
           expiryDate: 5,
           participants: 109,
           remainToken: 586,
           issueToken: 1000,
           buttonJoin: true,
           buttonDetail: true
+        }, {
+          fundingYears: 2,
+          name: "test contract",
+          type: "public",
+          // 
+          contractAddress: "0x1234",
+          erc20ContractAddress: "131414",
+          owner: 1,
+          stockCode: "4422342",
+          uid: null,
+          value: 1000
         }
       ]
     };
@@ -152,9 +174,26 @@ export default {
       }).finally(() => {
         console.log('finally');
       });
+    },
+    join (row) {
+      var body = {
+        // 
+      };
+      this.$http.post(this.$store.getters.server.hostname + this.$store.getters.server.path.join).then((response) => {
+        console.log(response);
+        if (response.data.ok) {
+          // this.data = response.data.d;
+        }
+      }).catch((error) => {
+        console.log('error', error);
+      }).finally(() => {
+        console.log('finally');
+        row.joinDialog = false;
+      });
     }
   },
   mounted () {
+    this.loadData();
   }
 };
 </script>

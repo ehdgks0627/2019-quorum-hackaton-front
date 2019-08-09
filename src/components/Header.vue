@@ -28,10 +28,10 @@ export default {
           title: 'List',
           icon: 'list',
           link: '/list'
-        }, {
-          title: 'Stock',
-          icon: 'trending_up',
-          link: '/stock'
+        // }, {
+        //   title: 'Stock',
+        //   icon: 'trending_up',
+        //   link: '/stock'
         }, {
           title: 'Contract',
           icon: 'assignment',

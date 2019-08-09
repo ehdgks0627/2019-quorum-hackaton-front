@@ -12,7 +12,7 @@
             <v-card class="card white-back pa-4">
               <v-layout row justify-center align-center>
                 <v-avatar color="#121836" class="mr-3">
-                  <span class="display-1 white--text">{{ $store.getters.account.identity.charAt(0) }}</span>
+                  <span class="display-1 white--text">{{ $store.getters.account.identity.charAt(0).toUpperCase() }}</span>
                 </v-avatar>
                 <div>
                   <p class="headline">{{ $store.getters.account.identity }}</p>
@@ -20,8 +20,8 @@
                 </div>
                 <v-spacer />
                 <div>
-                  <p class="title">{{ $store.getters.account.balance }}</p>
-                  <p class="title">{{ $store.getters.account.total }}</p>
+                  <p class="title">{{ $numberWithCommas($store.getters.account.balance) }} ￦</p>
+                  <p class="title">{{ $numberWithCommas($store.getters.account.total) }} ￦</p>
                 </div>
               </v-layout>
             </v-card>
@@ -48,22 +48,22 @@
                   <tr>
                     <td></td>
                     <td>
-                      <span>계약명</span>
+                      <span>Contract Name</span>
                     </td>
                     <td>
-                      <span>시작일</span>
+                      <span>Start Date</span>
                     </td>
                     <td>
-                      <span>만기일</span>
+                      <span>Expiry Date</span>
                     </td>
                     <td>
-                      <span>보유 토큰량</span>
+                      <span>Hold Token</span>
                     </td>
                     <td>
-                      <span>평가 금액</span>
+                      <span>Value Amount</span>
                     </td>
                     <td>
-                      <span>동작</span>
+                      <span>Function</span>
                     </td>
                   </tr>
                 </thead>
@@ -85,15 +85,15 @@
                       <span>{{ row.holdToken }}</span>
                     </td>
                     <td>
-                      <span>{{ row.valueAmount }}</span>
+                      <span>{{ $numberWithCommas(row.valueAmount) }}</span>
                     </td>
                     <td>
                       <v-layout column>
-                        <v-btn flat v-if="row.buttonTransfer">
-                          <span>송금</span>
+                        <v-btn class="my-3" v-if="row.buttonTransfer">
+                          <span>Transfer</span>
                         </v-btn>
-                        <v-btn flat v-if="row.buttonDetail">
-                          <span>세부 설명</span>
+                        <v-btn class="my-3" v-if="row.buttonDetail">
+                          <span>Description</span>
                         </v-btn>
                       </v-layout>
                     </td>
@@ -120,21 +120,21 @@ export default {
       address: '0x000000000000000000000000',
       data: [
         {
-          flag: '사모',
+          flag: 'Private',
           secName: '제 111회 한화',
           startDate: 2,
           expiryDate: 2,
           holdToken: 99,
-          valueAmount: 100,
+          valueAmount: 100000,
           buttonTransfer: true,
           buttonDetail: true
         }, {
-          flag: '공모',
+          flag: 'Public',
           secName: '제 2회 한화',
           startDate: 5,
           expiryDate: 5,
           holdToken: 586,
-          valueAmount: 1000,
+          valueAmount: 1000000,
           buttonTransfer: true,
           buttonDetail: true
         }
