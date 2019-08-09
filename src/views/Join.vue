@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="join">
     <!-- <v-img class="justify-center align-center"> -->
     <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
       <v-card class="mx-auto" max-width="800">
@@ -9,18 +9,18 @@
           </v-flex>
           <v-flex md6>
             <v-layout fill-height column justify-center align-content-space-around class="pa-4">
-              <span class="title text-xs-center mb-4">Welcome to QELS</span>
+              <span class="title text-xs-center mb-4">Join to QELS</span>
               <v-text-field hide-details v-model="identity" label="Identity"></v-text-field>
               <v-text-field hide-details v-model="password" label="Password"></v-text-field>
               <v-spacer />
               <v-layout row justify-space-between align-center>
                 <v-spacer />
-                <router-link to="/join">
-                  <span>Join</span>
+                <router-link to="/login">
+                  <span>Login</span>
                 </router-link>
               </v-layout>
               <v-btn block large class="pa-2" color="primary">
-                <span>Login</span>
+                <span>Join</span>
               </v-btn>
             </v-layout>
           </v-flex>
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'Login',
+  name: 'Join',
   components: {
   },
   data () {
