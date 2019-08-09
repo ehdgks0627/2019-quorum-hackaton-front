@@ -1,5 +1,5 @@
 <template>
-  <div class="stock">
+  <div class="list">
     <div class="main mini">
       <div class="circle c1"></div>
       <div class="circle c2"></div>
@@ -9,8 +9,8 @@
       <v-container fill-height>
         <v-layout justify-center align-center>
           <v-flex>
-            <h3 class="display-3 text-xs-center">STOCK GRAPH</h3>
-            <h3 class="display-1 text-xs-center red-text mb-4">Find your Stock from here !</h3>
+            <h3 class="display-3 text-xs-center">ELS LIST</h3>
+            <h3 class="display-1 mb-4 text-xs-center red-text">Find your ELS product from here !</h3>
           </v-flex>
         </v-layout>
       </v-container>
@@ -108,7 +108,7 @@
 
 <script>
 export default {
-  name: 'Stock',
+  name: 'List',
   components: {
   },
   data () {

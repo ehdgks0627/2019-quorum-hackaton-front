@@ -7,11 +7,6 @@
       <div class="circle c4"></div>
       <div class="circle c5"></div>
       <v-container fill-height>
-        <v-layout justify-center align-center>
-          <v-flex>
-            <h3 class="display-3 mb-4 text-xs-center">회원가입</h3>
-          </v-flex>
-        </v-layout>
       </v-container>
       <v-sparkline
         fill
@@ -34,14 +29,14 @@
               <v-flex md6>
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-layout fill-height column justify-center align-content-space-around class="pa-5">
-                    <h3 class="display-2 text-xs-center my-4">회원가입</h3>
+                    <h3 class="display-2 text-xs-center my-4">Join</h3>
                     <v-text-field v-model="identity" label="Identity" :rules="identityRules"></v-text-field>
                     <v-text-field v-model="password" label="Password" :rules="passwordRules"></v-text-field>
                     <v-spacer />
                     <v-layout row justify-space-between align-center class="mt-5">
                       <v-spacer />
                       <router-link to="/login">
-                        <span>Login</span>
+                        <span class="subtitle-1">Login</span>
                       </router-link>
                     </v-layout>
                     <v-btn block large class="pa-2" color="primary" @click="join">
@@ -69,10 +64,10 @@ export default {
       identity: '',
       password: '',
       identityRules: [
-        v => !!v || '를 입력하세요.'
+        v => !!v || 'Please input your ID.'
       ],
       passwordRules: [
-        v => !!v || '를 입력하세요.'
+        v => !!v || 'Please input your PW.'
       ]
     };
   },

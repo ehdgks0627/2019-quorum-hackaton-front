@@ -9,7 +9,8 @@
       <v-container fill-height>
         <v-layout justify-center align-center>
           <v-flex>
-            <h3 class="display-3 mb-4 text-xs-center text-uppercase font-weight-bold">Quorum Equity Linked Securities</h3>
+            <h3 class="display-3 mb-4 text-xs-center text-uppercase">Quorum Equity Linked Securities</h3>
+            <h3 class="display-1 mb-4 text-xs-center red-text">An equity-linked security is a debt instrument with variable payments linked to an equity market benchmark.</h3>
           </v-flex>
         </v-layout>
       </v-container>
@@ -29,17 +30,17 @@
         <v-flex>
           <v-card class="card my-5" elevation="24" v-ripple to="/login">
             <v-layout row align-center>
-              <span class="title" style="color: #ec2969;">로그인을 통해 QELS를 사용해보세요 !</span>
+              <span class="headline red-text">Log in to experience QELS !</span>
               <v-spacer />
-              <span class="title">로그인하러 이동</span>
+              <span class="headline">Go to Login</span>
               <v-icon dark class="ml-2">people</v-icon>
             </v-layout>
           </v-card>
           <v-card class="card my-5" elevation="24" v-ripple to="/login">
             <v-layout row align-center>
-              <span class="title" style="color: #ec2969;">로그인을 통해 QELS를 사용해보세요 !</span>
+              <span class="headline" style="color: #ec2969;">If you do not have an account, would you like to Join ?</span>
               <v-spacer />
-              <span class="title">로그인하러 이동</span>
+              <span class="headline">Go to Join</span>
               <v-icon dark class="ml-2">people</v-icon>
             </v-layout>
           </v-card>
@@ -47,11 +48,12 @@
       </v-layout>
     </v-container>
 
-    <v-parallax class="main-parallax" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+    <v-parallax class="main-parallax" src="/static/main.jpg">
       <v-responsive>
         <v-container fill-height>
           <v-layout align-center>
             <v-flex>
+              <span class="headline">Equity-linked securities are an alternative type of fixed-income investment. They are structured products most often created as bonds. Equity-linked securities are often used in private market corporate capital financings. They are offered to investors for the purpose of raising corporate capital. They are not traded on financial market exchanges.</span>
             </v-flex>
           </v-layout>
         </v-container>

@@ -236,6 +236,10 @@ table tr td:last-child {
   border-right: none;
 }
 
+.red-text {
+  color: #ec2969;
+}
+
 @keyframes anim-circle {
   0% {
     transform: translateX(20px) translateY(5px);

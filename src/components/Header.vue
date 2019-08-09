@@ -9,9 +9,9 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <router-link v-for="(element, index) in navigation" :key="index" class="navigation" :to="element.link">
-        <v-layout row justify-center align-center>
-          <span>{{ element.title }}</span>
-          <v-icon small class="ml-1">{{ element.icon }}</v-icon>
+        <v-layout row justify-center>
+          <span class="title">{{ element.title }}</span>
+          <v-icon class="ml-1">{{ element.icon }}</v-icon>
         </v-layout>
       </router-link>
     </v-container>
@@ -25,11 +25,15 @@ export default {
     navigation () {
       var result = [
         {
-          title: '리스트',
+          title: 'List',
+          icon: 'list',
+          link: '/list'
+        }, {
+          title: 'Stock',
           icon: 'trending_up',
           link: '/stock'
         }, {
-          title: '계약서',
+          title: 'Contract',
           icon: 'assignment',
           link: '/write'
         }
@@ -37,13 +41,13 @@ export default {
 
       if (this.$store.getters.account.identity) {
         result.push({
-          title: '마이페이지',
+          title: 'My Page',
           icon: 'account_circle',
           link: '/myPage'
         });
       } else {
         result.push({
-          title: '로그인',
+          title: 'Login',
           icon: 'people',
           link: '/login'
         });

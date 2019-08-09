@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/views/Home';
 import Login from '@/views/Login';
 import Join from '@/views/Join';
+import List from '@/views/List';
 import Stock from '@/views/Stock';
 import Write from '@/views/Write';
 import MyPage from '@/views/MyPage';
@@ -23,6 +24,10 @@ export default new Router({
       path: '/join',
       name: 'Join',
       component: Join
+    }, {
+      path: '/list',
+      name: 'List',
+      component: List
     }, {
       path: '/stock',
       name: 'Stock',
