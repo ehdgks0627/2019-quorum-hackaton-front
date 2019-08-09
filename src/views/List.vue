@@ -68,7 +68,7 @@
                       <span>{{ row.name }}</span>
                     </td>
                     <td>
-                      <span>{{ $numberWithCommas(row.issueAmount) }} ￦</span>
+                      <span>{{ $numberWithCommas(row.issueAmout) }} ￦</span>
                     </td>
                     <td>
                       <span>{{ row.duesPerYear }} %</span>
@@ -77,7 +77,7 @@
                       <span>{{ row.fundingYears }} years</span>
                     </td>
                     <td>
-                      <span>{{ row.participants }}</span>
+                      <span>{{ row.JoinCnt || row.cnt }}</span>
                     </td>
                     <td>
                       <span>{{ row.remainToken }}</span>

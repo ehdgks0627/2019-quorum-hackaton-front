@@ -28,22 +28,50 @@
     <v-container>
       <v-layout align-center justify-center style="min-height: 500px;">
         <v-flex>
-          <v-card class="card my-5" elevation="24" v-ripple to="/login">
-            <v-layout row align-center>
-              <span class="headline red-text">Log in to experience QELS !</span>
-              <v-spacer />
-              <span class="headline">Go to Login</span>
-              <v-icon dark class="ml-2">people</v-icon>
-            </v-layout>
-          </v-card>
-          <v-card class="card my-5" elevation="24" v-ripple to="/login">
-            <v-layout row align-center>
-              <span class="headline" style="color: #ec2969;">If you do not have an account, would you like to Join ?</span>
-              <v-spacer />
-              <span class="headline">Go to Join</span>
-              <v-icon dark class="ml-2">people</v-icon>
-            </v-layout>
-          </v-card>
+          <template v-if="$store.getters.account.identity">
+            <v-card class="card my-5" elevation="24" v-ripple to="/list">
+              <v-layout row align-center>
+                <span class="headline red-text">Find your ELS product from here !</span>
+                <v-spacer />
+                <span class="headline">Go to List</span>
+                <v-icon dark class="ml-2">list</v-icon>
+              </v-layout>
+            </v-card>
+            <v-card class="card my-5" elevation="24" v-ripple to="/write">
+              <v-layout row align-center>
+                <span class="headline red-text">Create and distribute an QELS Contract !</span>
+                <v-spacer />
+                <span class="headline">Go to Write</span>
+                <v-icon dark class="ml-2">assignment</v-icon>
+              </v-layout>
+            </v-card>
+            <v-card class="card my-5" elevation="24" v-ripple to="/myPage">
+              <v-layout row align-center>
+                <span class="headline red-text">Check the your Informations !</span>
+                <v-spacer />
+                <span class="headline">Go to My Page</span>
+                <v-icon dark class="ml-2">account_circle</v-icon>
+              </v-layout>
+            </v-card>
+          </template>
+          <template v-else>
+            <v-card class="card my-5" elevation="24" v-ripple to="/login">
+              <v-layout row align-center>
+                <span class="headline red-text">Log in to experience QELS !</span>
+                <v-spacer />
+                <span class="headline">Go to Login</span>
+                <v-icon dark class="ml-2">people</v-icon>
+              </v-layout>
+            </v-card>
+            <v-card class="card my-5" elevation="24" v-ripple to="/login">
+              <v-layout row align-center>
+                <span class="headline" style="color: #ec2969;">If you do not have an account, would you like to Join ?</span>
+                <v-spacer />
+                <span class="headline">Go to Join</span>
+                <v-icon dark class="ml-2">people</v-icon>
+              </v-layout>
+            </v-card>
+          </template>
         </v-flex>
       </v-layout>
     </v-container>
