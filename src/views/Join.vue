@@ -1,33 +1,60 @@
 <template>
   <div class="join">
-    <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" gradient="to top right, rgba(100,115,201,.63), rgba(25,32,72,.9)" class="justify-center align-center">
-      <v-card class="mx-auto" max-width="1000">
-        <v-layout row>
-          <v-flex md6>
-            <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" aspect-ratio="1.7" height="100%"></v-img>
-          </v-flex>
-          <v-flex md6>
-            <v-form ref="form" v-model="valid" lazy-validation>
-              <v-layout fill-height column justify-center align-content-space-around class="pa-4">
-                <h3 class="display-2 text-xs-center my-4">Join to QELS</h3>
-                <v-text-field v-model="identity" label="Identity" :rules="identityRules"></v-text-field>
-                <v-text-field v-model="password" label="Password" :rules="passwordRules"></v-text-field>
-                <v-spacer />
-                <v-layout row justify-space-between align-center class="mt-5">
-                  <v-spacer />
-                  <router-link to="/login">
-                    <span>Login</span>
-                  </router-link>
-                </v-layout>
-                <v-btn block large class="pa-2" color="primary" @click="join">
-                  <span>Join</span>
-                </v-btn>
-              </v-layout>
-            </v-form>
+    <div class="main mini">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+      <div class="circle c4"></div>
+      <div class="circle c5"></div>
+      <v-container fill-height>
+        <v-layout justify-center align-center>
+          <v-flex>
+            <h3 class="display-3 mb-4 text-xs-center">회원가입</h3>
           </v-flex>
         </v-layout>
-      </v-card>
-    </v-img>
+      </v-container>
+      <v-sparkline
+        fill
+        :gradient="['#192149']"
+        :line-width="2"
+        :padding="0"
+        :smooth="13"
+        :value="[0, 2, 5, 9, 5, 10, 3, 5, 0, 7, 5, 8, 2, 9, 0]"
+      ></v-sparkline>
+    </div>
+
+    <v-container>
+      <v-layout align-center justify-center style="min-height: 500px;">
+        <v-flex>
+          <v-card class="card mx-auto pa-0 my-5" max-width="1000" elevation="24">
+            <v-layout row>
+              <v-flex md6>
+                <v-img src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" aspect-ratio="1.7" height="100%"></v-img>
+              </v-flex>
+              <v-flex md6>
+                <v-form ref="form" v-model="valid" lazy-validation>
+                  <v-layout fill-height column justify-center align-content-space-around class="pa-5">
+                    <h3 class="display-2 text-xs-center my-4">회원가입</h3>
+                    <v-text-field v-model="identity" label="Identity" :rules="identityRules"></v-text-field>
+                    <v-text-field v-model="password" label="Password" :rules="passwordRules"></v-text-field>
+                    <v-spacer />
+                    <v-layout row justify-space-between align-center class="mt-5">
+                      <v-spacer />
+                      <router-link to="/login">
+                        <span>Login</span>
+                      </router-link>
+                    </v-layout>
+                    <v-btn block large class="pa-2" color="primary" @click="join">
+                      <span>Join</span>
+                    </v-btn>
+                  </v-layout>
+                </v-form>
+              </v-flex>
+            </v-layout>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 

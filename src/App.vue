@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" dark>
     <!-- <v-progress-linear v-if="$store.getters.progress.show" :indeterminate="true" class="main-progress" height="2"></v-progress-linear>
     <v-snackbar v-model="$store.getters.snackbar.show" :color="$store.getters.snackbar.color" :multi-line="$store.getters.snackbar.mode === 'multi-line'" :timeout="$store.getters.snackbar.timeout" :vertical="$store.getters.snackbar.mode === 'vertical'" top right>
       {{ $store.getters.snackbar.message }}
@@ -56,6 +56,35 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: "DarkerGrotesque Light";
+  src: url("assets/fonts/DarkerGrotesque-Light.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque";
+  src: url("assets/fonts/DarkerGrotesque-Regular.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque Medium";
+  src: url("assets/fonts/DarkerGrotesque-Medium.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque SemiBold";
+  src: url("assets/fonts/DarkerGrotesque-SemiBold.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque Bold";
+  src: url("assets/fonts/DarkerGrotesque-Bold.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque ExtraBold";
+  src: url("assets/fonts/DarkerGrotesque-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "DarkerGrotesque Black";
+  src: url("assets/fonts/DarkerGrotesque-Black.ttf");
+}
+
 * {
   outline: none;
   vertical-align: middle;
@@ -84,6 +113,7 @@ html, body {
   margin: 0px;
   background: black;
   color: white;
+  font-family: 'DarkerGrotesque', sans-serif;
   font-weight: 500;
 }
 
@@ -94,5 +124,131 @@ a {
 
 .v-content {
   padding-top: 0px !important;
+  background-color: rgb(25, 33, 73);
+}
+
+.main-parallax .v-parallax__image-container {
+  background-color: black !important;
+}
+
+.main-parallax .v-parallax__image {
+  opacity: 0.2 !important;
+}
+
+.main {
+  position: relative;
+  padding: 256px 0px 0px;
+  background-color: rgb(18, 24, 54);
+  color: white;
+}
+
+.main.mini {
+  padding: 128px 0px 0px;
+}
+
+.main.mini .container {
+  margin-bottom: -64px;
+}
+
+.main .circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: rgba(53, 61, 107, 0.4);
+  animation-name: anim-circle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.main .circle.c1 {
+  top: 130px;
+  left: 87px;
+  width: 200px;
+  height: 200px;
+  animation-duration: 20s;
+}
+
+.main .circle.c2 {
+  bottom: 10px;
+  left: 10px;
+  width: 200px;
+  height: 200px;
+  animation-duration: 140s;
+}
+
+.main .circle.c3 {
+  top: 5px;
+  left: 10px;
+  width: 200px;
+  height: 200px;
+  animation-duration: 150s;
+}
+
+.main .circle.c4 {
+  bottom: 119px;
+  right: 96px;
+  width: 200px;
+  height: 200px;
+  animation-duration: 90s;
+}
+
+.main .circle.c5 {
+  bottom: 10px;
+  right: 10px;
+  width: 200px;
+  height: 200px;
+  animation-duration: 70s;
+}
+
+.card {
+  padding: 32px;
+  background-color: rgb(36, 45, 85) !important;
+  border-radius: 24px;
+  color: white !important;
+  overflow: hidden;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table thead tr td {
+  padding: 12px 4px;
+}
+
+table tbody tr td {
+  padding: 0px 4px;
+  border-top: 1px groove white;
+}
+
+table tr td {
+  border-right: 1px groove rgba(255, 255, 255, 0.1);
+}
+
+table tr td:last-child {
+  border-right: none;
+}
+
+@keyframes anim-circle {
+  0% {
+    transform: translateX(20px) translateY(5px);
+  }
+  20% {
+    transform: translateX(5px) translateY(0px);
+  }
+  40% {
+    transform: translateX(-20px) translateY(-15px);
+  }
+  60% {
+    transform: translateX(-8px) translateY(-10px);
+  }
+  80% {
+    transform: translateX(-1px) translateY(-9px);
+  }
+  100% {
+    transform: translateX(-10px) translateY(0px);
+  }
 }
 </style>

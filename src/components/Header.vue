@@ -25,11 +25,11 @@ export default {
     navigation () {
       var result = [
         {
-          title: 'Stock',
+          title: '리스트',
           icon: 'trending_up',
           link: '/stock'
         }, {
-          title: 'Write',
+          title: '계약서',
           icon: 'assignment',
           link: '/write'
         }
@@ -37,13 +37,13 @@ export default {
 
       if (this.$store.getters.account.identity) {
         result.push({
-          title: 'My Page',
+          title: '마이페이지',
           icon: 'account_circle',
           link: '/myPage'
         });
       } else {
         result.push({
-          title: 'Login',
+          title: '로그인',
           icon: 'people',
           link: '/login'
         });
