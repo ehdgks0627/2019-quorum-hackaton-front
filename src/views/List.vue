@@ -27,7 +27,7 @@
     <v-container>
       <v-layout align-center justify-center style="min-height: 500px;">
         <v-flex>
-          <v-card class="card mx-auto" max-width="1000" elevation="24">
+          <v-card class="card mx-auto" elevation="24">
             <v-layout fill-height column justify-center align-content-space-around class="pa-3">
               <table class="">
                 <thead>

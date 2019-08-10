@@ -41,7 +41,7 @@
     <v-container>
       <v-layout align-center justify-center>
         <v-flex>
-          <v-card class="card pa-0 mb-5" max-width="1000" elevation="24">
+          <v-card class="card pa-0 mb-5" elevation="24">
             <v-layout fill-height column justify-center align-content-space-around class="pa-3">
               <table class="">
                 <thead>

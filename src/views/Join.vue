@@ -21,7 +21,7 @@
     <v-container>
       <v-layout align-center justify-center>
         <v-flex>
-          <v-card class="card mx-auto pa-0 my-5" max-width="1000" elevation="24">
+          <v-card class="card mx-auto pa-0 my-5" elevation="24">
             <v-layout row>
               <v-flex md6 style="background-color: black;">
                 <v-img src="/static/main.jpg" aspect-ratio="1.7" height="100%" style="opacity: 0.3;"></v-img>
