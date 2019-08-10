@@ -21,7 +21,7 @@
                 <v-spacer />
                 <div>
                   <p class="title">Balance: {{ $numberWithCommas($store.getters.account.balance) }} ￦</p>
-                  <p class="title">Total: {{ $numberWithCommas($store.getters.account.total) }} ￦</p>
+                  <p class="title">Finance: {{ $numberWithCommas($store.getters.account.finance) }} ￦</p>
                 </div>
               </v-layout>
             </v-card>
