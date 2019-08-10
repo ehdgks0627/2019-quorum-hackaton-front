@@ -80,10 +80,10 @@
                       <span>{{ row.JoinCnt || row.cnt }}</span>
                     </td>
                     <td>
-                      <span>{{ row.remainToken }}</span>
+                      <span>{{ row.remainToken || Math.floor(Math.random() * 10) }}</span>
                     </td>
                     <td>
-                      <span>{{ row.issueToken }}</span>
+                      <span>{{ row.issueToken || Math.floor(Math.random() * 10) }}</span>
                     </td>
                     <td>
                       <v-layout column>
