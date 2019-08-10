@@ -135,7 +135,7 @@ export default {
       data: [
         {
           flag: 'Private',
-          secName: '제 111회 한화',
+          secName: 'DAKDAK3000',
           startDate: 2,
           expiryDate: 2,
           holdToken: 99,
@@ -144,7 +144,7 @@ export default {
           buttonDetail: true
         }, {
           flag: 'Public',
-          secName: '제 2회 한화',
+          secName: 'DAKDAK2000',
           startDate: 5,
           expiryDate: 5,
           holdToken: 586,
