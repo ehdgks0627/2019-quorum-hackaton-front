@@ -85,7 +85,7 @@
                       <span>{{ row.holdToken }}</span>
                     </td>
                     <td>
-                      <span>{{ $numberWithCommas(row.valueAmount) }}</span>
+                      <span>{{ $numberWithCommas(row.valueAmount) }} ￦</span>
                     </td>
                     <td>
                       <v-layout column>
