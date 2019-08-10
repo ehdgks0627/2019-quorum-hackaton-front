@@ -161,6 +161,7 @@ export default {
     }
   },
   mounted () {
+    this.$store.dispatch('getAccount', {identity: this.identity});
   }
 };
 </script>
